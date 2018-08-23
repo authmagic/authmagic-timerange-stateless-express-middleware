@@ -1,6 +1,6 @@
 {
   "name": "authmagic-timerange-stateless-express-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Middleware for express framework which works with timerange-stateless core",
   "main": "index.js",
   "keywords": ["express", "authorization", "auth", "oauth"],
