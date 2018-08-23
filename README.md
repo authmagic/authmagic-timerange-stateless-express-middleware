@@ -1,6 +1,3 @@
-# authmagic-timerange-stateless-express-middleware
-Middleware for express framework which works with timerange-stateless core
-
 <img src="https://github.com/authmagic/authmagic/blob/master/docs/images/logo.png?raw=true" width="300px"/>
 
 authmagic-timerange-stateless-express-middleware
