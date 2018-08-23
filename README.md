@@ -2,7 +2,7 @@
 
 authmagic-timerange-stateless-express-middleware
 ========================
-<a href="https://github.com/authmagic/authmagic">authmagic</a> middleware for <a href="https://github.com/expressjs/express">express.js</a> which works with <a href="authmagic-timerange-stateless-core">timerange-stateless core</a>.
+<a href="https://github.com/authmagic/authmagic">authmagic</a> middleware for <a href="https://github.com/expressjs/express">express.js</a> which works with <a href="https://github.com/authmagic/authmagic-timerange-stateless-core">timerange-stateless core</a>.
 
 How to install and add
 -----------
