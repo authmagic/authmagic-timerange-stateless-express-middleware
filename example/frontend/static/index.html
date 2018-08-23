@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clients</title>
+</head>
+<body>
+<script>
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+    function getToken() {
+      return fetch('http://localhost:3000/token', {
+        mode: 'cors',
+        method: 'post',
+        body: JSON.stringify({ekey: getParameterByName('ekey')}),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      }).then(response => response.json())
+        .then(({ token, refreshToken }) => {
+        localStorage.setItem('token', token);
+        localStorage.setItem('refreshToken', refreshToken);
+      }).catch(e => {
+        console.log(e);
+      });
+    }
+
+    function getClients() {
+      return fetch('http://localhost:3001/clients', {
+        mode: 'cors',
+        method: 'get',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token'),
+          'Content-Type': 'application/json'
+        },
+      }).then((response) => {
+        if(response.status !== 200) {
+          document.body.innerText = 'Access error';
+          throw new Error(response);
+        }
+
+        return response.json();
+      }).then((data) => {
+        document.body.innerText = JSON.stringify(data);
+      }).catch(e => {
+        location.href = `http://localhost:3000?redirect=${location.href}`;
+      });
+    }
+
+    if(getParameterByName('ekey')) {
+      getToken().then(getClients);
+    } else {
+      getClients();
+    }
+
+</script>
+</body>
+</html>
