@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/authmagic/authmagic-timerange-stateless-express-middleware.git"
   },
-  "homepage": "https://github.com/authmagic/authmagic-timerange-stateless-express-middleware#readme"
+  "homepage": "https://github.com/authmagic/authmagic-timerange-stateless-express-middleware#readme",
   "dependencies": {
     "node-cache": "^4.2.0",
     "node-fetch": "^2.2.0"
