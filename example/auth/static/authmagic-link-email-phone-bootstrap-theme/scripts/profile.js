@@ -2,19 +2,26 @@
 
 var validate = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var token, response;
+    var token, res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             token = localStorage.getItem('token');
             _context.next = 3;
-            return fetch('/token/status/' + encodeURIComponent(token));
+            return fetch('/token/status', {
+              body: JSON.stringify({ token: token }),
+              mode: 'cors',
+              method: 'post',
+              headers: {
+                'content-type': 'application/json'
+              }
+            });
 
           case 3:
-            response = _context.sent;
+            res = _context.sent;
 
-            if (response.status === 200) {
+            if (res.status === 200) {
               renderInfo();
             }
 

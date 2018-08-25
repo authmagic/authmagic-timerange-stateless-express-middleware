@@ -68,6 +68,9 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-var ekey = getParameterByName('ekey');
-
-check(ekey);
+if (localStorage.getItem('token') && !getParameterByName('ekey')) {
+  location.href = '/profile.html';
+} else {
+  var ekey = getParameterByName('ekey');
+  check(ekey);
+}
