@@ -23,10 +23,14 @@ module.exports = {
       "subject": "Your Magic Link"
     },
     "authmagic-timerange-stateless-core": {
-      "duration": 300,
-      "key": "41e4a6cf5273e3c6",
+      "key": "dd4ba717f2ecb07e",
       "sendKeyPlugin": "authmagic-email-plugin",
-      "expiresIn": 1200
+      "expiresIn": "20m",
+      "refreshExpiresIn": "2d",
+      "securityKeyRule": {
+        "length": 6,
+        "charset": "numeric"
+      }
     }
   },
   "port": 3000,
